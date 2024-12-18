@@ -11,5 +11,5 @@ func Info(message string) {
 }
 
 func Fatal(message string) {
-	log.Fatalf("[%s]: %s\n", "FATAL", message)
+	log.Panicf("[%s]: %s\n", "FATAL", message)
 }

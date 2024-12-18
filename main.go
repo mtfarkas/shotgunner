@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/signal"
@@ -105,7 +106,13 @@ func Start() {
 	keyboardHook = 0
 }
 
+func WaitForKey() {
+	fmt.Println("Press any key to continue...")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
+}
+
 func main() {
+	defer WaitForKey()
 	wg.Add(1)
 
 	logutil.Info("Program started")
